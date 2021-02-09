@@ -26,10 +26,11 @@ public class File {
     @JsonIgnoreProperties({"files"})
     private Folder folder;
 
-    public File(String name, String extension, int size) {
+    public File(String name, String extension, int size, Folder folder) {
         this.name = name;
         this.extension = extension;
         this.size = size;
+        this.folder = folder;
     }
 
     // Default constructor for Spring to use

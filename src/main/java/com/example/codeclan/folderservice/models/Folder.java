@@ -26,8 +26,9 @@ public class Folder {
     @JsonIgnoreProperties("folders") // there is a LIST of folderS in the user object, that we need to ignore.
     private User user;
 
-    public Folder(String title) {
+    public Folder(String title, User user) {
         this.title = title;
+        this.user = user;
         this.files = new ArrayList<>();
     }
 
