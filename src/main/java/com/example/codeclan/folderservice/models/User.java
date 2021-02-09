@@ -3,6 +3,7 @@ package com.example.codeclan.folderservice.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -20,9 +21,9 @@ public class User {
     @JsonIgnoreProperties({"user"})
     private List<Folder> folders;
 
-    public User(String name, List<Folder> folders) {
+    public User(String name) {
         this.name = name;
-        this.folders = folders;
+        this.folders = new ArrayList<>();
     }
 
     // Default constructor for use by Spring

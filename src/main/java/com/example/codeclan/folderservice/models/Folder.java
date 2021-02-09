@@ -3,6 +3,7 @@ package com.example.codeclan.folderservice.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -25,10 +26,9 @@ public class Folder {
     @JsonIgnoreProperties("folders") // there is a LIST of folderS in the user object, that we need to ignore.
     private User user;
 
-    public Folder(String title, List<File> files, User user) {
+    public Folder(String title) {
         this.title = title;
-        this.files = files;
-        this.user = user;
+        this.files = new ArrayList<>();
     }
 
     // empty constructor for Spring to use
