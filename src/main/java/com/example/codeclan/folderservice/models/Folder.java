@@ -18,12 +18,12 @@ public class Folder {
     private String title;
 
     @OneToMany(mappedBy = "folder") // A folder can have many files. Map to folders in file objects
-    @JsonIgnoreProperties("folder")
+    @JsonIgnoreProperties("folder") // 'Ignore' anything that follows from the folder 'variable' in files.
     private List<File> files;
 
     @ManyToOne // Many folders can be owned by one user
     @JoinColumn(name = "user_id", nullable = false)
-    @JsonIgnoreProperties("folders") // there is a LIST of folderS in the user object, that we need to ignore.
+    @JsonIgnoreProperties("folders") // there is a LIST of folderS in the user object, that we need to 'stop at' (to prevent recursion)
     private User user;
 
     public Folder(String title, User user) {
